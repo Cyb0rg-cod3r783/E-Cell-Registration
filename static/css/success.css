@@ -1,0 +1,289 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Success Card */
+.success-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    animation: slideUp 0.6s ease-out;
+    border: 3px solid #4285f4;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Success Icon */
+.success-icon {
+    margin-bottom: 20px;
+}
+
+.success-icon i {
+    font-size: 80px;
+    color: #4285f4;
+    animation: bounceIn 0.8s ease-out 0.3s both;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Typography */
+.success-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.success-message {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Registration Details */
+.registration-details {
+    background: #f8f9ff;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 30px 0;
+    border-left: 4px solid #4285f4;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.detail-item:last-child {
+    margin-bottom: 0;
+}
+
+.detail-item i {
+    color: #4285f4;
+    width: 20px;
+    margin-right: 12px;
+    font-size: 1.1rem;
+}
+
+.detail-item strong {
+    color: #333;
+}
+
+/* Action Buttons */
+.action-buttons {
+    margin: 30px 0;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    min-width: 160px;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: #4285f4;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #3367d6;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(66, 133, 244, 0.3);
+}
+
+.btn-secondary {
+    background: white;
+    color: #4285f4;
+    border: 2px solid #4285f4;
+}
+
+.btn-secondary:hover {
+    background: #4285f4;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(66, 133, 244, 0.2);
+}
+
+/* Additional Info */
+.additional-info {
+    background: #e8f0fe;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+    margin-top: 25px;
+}
+
+.additional-info p {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.additional-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.additional-info li {
+    color: #555;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.additional-info li::before {
+    content: "✓";
+    color: #4285f4;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Confetti Animation */
+.confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #4285f4;
+    animation: confetti-fall 3s linear infinite;
+}
+
+.confetti-piece:nth-child(odd) {
+    background: #34a853;
+    animation-delay: 0.5s;
+}
+
+.confetti-piece:nth-child(3n) {
+    background: #fbbc04;
+    animation-delay: 1s;
+}
+
+.confetti-piece:nth-child(4n) {
+    background: #ea4335;
+    animation-delay: 1.5s;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .success-card {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+    
+    .success-title {
+        font-size: 2rem;
+    }
+    
+    .success-icon i {
+        font-size: 60px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .detail-item i {
+        margin-bottom: 5px;
+    }
+}

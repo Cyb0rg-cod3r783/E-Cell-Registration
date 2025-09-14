@@ -1,0 +1,424 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Container */
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Registration Card */
+.registration-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 3px solid #4285f4;
+  animation: slideUp 0.6s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header Section */
+.header-section {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.icon {
+  margin-bottom: 15px;
+}
+
+.icon i {
+  font-size: 50px;
+  color: #4285f4;
+  animation: bounceIn 0.8s ease-out 0.3s both;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+h1 {
+  color: #333;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.organizer {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.workshop-info {
+  background: #f8f9ff;
+  border-radius: 12px;
+  padding: 20px;
+  border-left: 4px solid #4285f4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.info-item i {
+  color: #4285f4;
+  width: 16px;
+  margin-right: 8px;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-group {
+  position: relative;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+label i {
+  color: #4285f4;
+  margin-right: 8px;
+  width: 16px;
+}
+
+input {
+  width: 100%;
+  padding: 15px 16px;
+  border: 2px solid #e1e8ed;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #fff;
+  position: relative;
+}
+
+input:focus {
+  border-color: #4285f4;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+  transform: translateY(-2px);
+}
+
+input::placeholder {
+  color: #999;
+}
+
+/* Input Animation Line */
+.input-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #4285f4;
+  transition: width 0.3s ease;
+}
+
+input:focus + .input-line {
+  width: 100%;
+}
+
+/* Register Button */
+.register-btn {
+  background: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.register-btn:hover {
+  background: #3367d6;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(66, 133, 244, 0.3);
+}
+
+.register-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Button Ripple Effect */
+.btn-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Response Message */
+.response-message {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.response-message.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.response-message.success {
+  background: #e8f5e8;
+  color: #4caf50;
+  border: 1px solid #4caf50;
+}
+
+.response-message.error {
+  background: #ffeaea;
+  color: #f44336;
+  border: 1px solid #f44336;
+}
+
+/* Flask Message (fallback) */
+.flask-message {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  background: #ffeaea;
+  color: #f44336;
+  border: 1px solid #f44336;
+}
+
+/* Footer Info */
+.footer-info {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.footer-info p {
+  color: #666;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.footer-info i {
+  color: #4285f4;
+}
+
+/* Background Shapes */
+.background-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: float 6s ease-in-out infinite;
+}
+
+.shape1 {
+  width: 80px;
+  height: 80px;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.shape2 {
+  width: 60px;
+  height: 60px;
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.shape3 {
+  width: 40px;
+  height: 40px;
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+/* Loading State */
+.register-btn.loading {
+  pointer-events: none;
+  background: #94a3b8;
+}
+
+.register-btn.loading::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  margin-left: 10px;
+  border: 2px solid transparent;
+  border-top: 2px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .registration-card {
+    padding: 30px 20px;
+    margin: 10px;
+  }
+  
+  h1 {
+    font-size: 1.7rem;
+  }
+  
+  .icon i {
+    font-size: 40px;
+  }
+  
+  .workshop-info {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  input {
+    padding: 12px 14px;
+  }
+  
+  .register-btn {
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+}
+
+/* Form Validation Styles */
+input:invalid {
+  border-color: #f44336;
+}
+
+input:valid {
+  border-color: #4caf50;
+}
+
+.form-group.error input {
+  border-color: #f44336;
+  background: #fff5f5;
+}
+
+.form-group.success input {
+  border-color: #4caf50;
+  background: #f0fff4;
+}
+
+/* Focus trap for accessibility */
+input:focus-visible {
+  outline: 2px solid #4285f4;
+  outline-offset: 2px;
+}
+
+.register-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful - E-Cell IIT Bombay Workshop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/success.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="success-card">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            
+            <h1 class="success-title">Registration Successful!</h1>
+            
+            <p class="success-message">
+                Thank you for registering for the Entrepreneurship Workshop organized by E-Cell IIT Bombay. Your registration has been confirmed and you will receive a confirmation email shortly.
+            </p>
+            
+            <div class="registration-details">
+                <div class="detail-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>Registration ID: <strong id="registration-id">#REG12345</strong></span>
+                </div>
+                
+                <div class="detail-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Confirmation email sent to: <strong id="user-email">{{ email if email else 'your.email@example.com' }}</strong></span>
+                </div>
+                
+                <div class="detail-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Registered on: <strong id="registration-date"></strong></span>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="downloadConfirmation()">
+                    <i class="fas fa-download"></i>
+                    Download Confirmation
+                </button>
+                
+                <button class="btn btn-secondary" onclick="goToHome()">
+                    <i class="fas fa-home"></i>
+                    Back to Home
+                </button>
+            </div>
+            
+            <div class="additional-info">
+                <p><strong>What's Next?</strong></p>
+                <ul>
+                    <li>Check your email for detailed workshop information</li>
+                    <li>Add the workshop to your calendar</li>
+                    <li>Follow E-Cell IIT Bombay on social media for updates</li>
+                    <li>Prepare for an exciting entrepreneurship journey!</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="confetti" id="confetti"></div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/success.js') }}"></script>
+</body>
+</html>
